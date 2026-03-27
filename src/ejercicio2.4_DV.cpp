@@ -78,10 +78,11 @@ int main(int argc, char *argv[]) {
 	invert = inversiones(v,0,n-1); 
 	tf= std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
 	
-	unsigned long tejecucion= std::chrono::duration_cast<std::chrono::microseconds>(tf - t0).count();
+	double tejecucion= std::chrono::duration_cast<std::chrono::microseconds>(tf - t0).count();
   tejecucion= tejecucion/1000000.0; // Convertimos a segundos
 	
-	cout <<"para " <<n<<" inversiones: "<<invert<<" tiempo: "<<tejecucion<<endl;
+	cout << "para " << n <<" inversiones: "<< invert <<" tiempo: "<< tejecucion << endl;
 	
 	return 0;
+
 }
