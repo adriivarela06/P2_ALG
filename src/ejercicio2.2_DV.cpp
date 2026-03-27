@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
    }
 			
 	t0 = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que comienza la ejecuciÛn del algoritmo
-	parejaMaxima(v, 0, filas, 0, columnas);
+	parejaMaxima(v, 0, filas - 1, 0, columnas - 1);
 	tf = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
 	
 	duracion = std::chrono::duration_cast<std::chrono::duration<double>>(tf - t0);
