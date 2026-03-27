@@ -30,7 +30,7 @@ int contInversiones(vector<int>& v, int inicio, int medio, int fin){
       vaux.push_back(v[j]);
       j++;
   }
-  for (int k = 0; k < vaux.size(); k++) {
+  for (int k = 0; k < (int)vaux.size(); k++) {
     v[inicio + k] = vaux[k];
   }
 
