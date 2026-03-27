@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include <cstdlib>
 
 using namespace std;
 
@@ -7,10 +8,10 @@ pair<int, int> max2_matriz(int **matriz, int filas, int columnas){
    pair<int, int> output;
 
    if(filas > 0 && columnas > 0){
-      output.first = matriz[0][0];
+      output = {matriz[0][0], -1};
 
       for(int i = 0; i < filas; ++i){
-         for(int j = 0; i < columnas; ++j){
+         for(int j = 0; j < columnas; ++j){
             int num = matriz[i][j];
             if(num > output.first){
                output.second = output.first;
@@ -55,7 +56,7 @@ int main(int argc, char *argv[]) {
 		   v[i][j] = rand() % total;
 			
 	t0 = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que comienza la ejecuciÛn del algoritmo
-	 
+	max2_matriz(v, filas, columnas);
 	tf = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
 	
 	duracion = std::chrono::duration_cast<std::chrono::duration<double>>(tf - t0);
