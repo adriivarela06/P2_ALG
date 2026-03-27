@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <climits>
+#include <chrono>
 
 using namespace std;
 
@@ -42,21 +43,44 @@ pair<int, int> parejaMaxima(const vector<vector<int>> &M,int inicio_i,int inicio
 	return pmaximo;
 }
 
-int main() {
-    // Ejemplo de matriz 3x4
-    vector<vector<int>> matriz = {
-        {10, 2, 33, 4},
-        {5, 61, 7, 8},
-        {9, 10, 11, 12}
-    };
+int main(int argc, char *argv[]) {
+   vector<vector<int>> v;
+	int filas, columnas, total;
+	chrono::high_resolution_clock::time_point t0, tf;
+	chrono::duration<double> duracion;
 
-    int filas = matriz.size();
-    int cols = matriz[0].size();
+	if (argc != 4) {
+		cerr << "Uso: " << argv[0] << " semilla tam\n";
+		return -1;
+	}
 
-    // Llamada inicial: desde (0,0) hasta el final (n-1, m-1)
-    pair<int, int> resultado = parejaMaxima(matriz, 0, 0, filas - 1, cols - 1);
+	unsigned long int semilla;
+	semilla = atoi(argv[1]);
+	srand(semilla);	// Inicializamos generador de no. aleatorios
+	
+	filas = atoi(argv[2]);
+   columnas = atoi(argv[3]);
+   total = filas * columnas;
 
-    cout << "El maximo de la matriz es: " << resultado.first << ", " << resultado.second << endl;
+   v.reserve(filas);
+	
+	// Generamos vector aleatorio de prueba, con componentes entre 0 y n-1
+	for (int i = 0; i < filas; ++i){
+      vector<int> temporal;
+      temporal.reserve(columnas);
 
-    return 0;
+      for(int j = 0; j < columnas; ++j)
+		   temporal.push_back(rand() % total);
+
+      v.push_back(temporal);
+   }
+			
+	t0 = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que comienza la ejecuciÛn del algoritmo
+	parejaMaxima(v, 0, filas, 0, columnas);
+	tf = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
+	
+	duracion = std::chrono::duration_cast<std::chrono::duration<double>>(tf - t0);
+	cout << filas * columnas << " " << duracion.count() << endl;
+
+	return 0;
 }

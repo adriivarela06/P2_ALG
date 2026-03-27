@@ -1,17 +1,18 @@
 #include <iostream>
 #include <chrono>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
-pair<int, int> max2_matriz(int **matriz, int filas, int columnas){
+pair<int, int> max2_matriz(const vector<vector<int>> &matriz,int inicio_i,int inicio_j,int final_i,int final_j){
    pair<int, int> output;
 
-   if(filas > 0 && columnas > 0){
+   if(final_i - inicio_i > 0 && final_j - inicio_j > 0){
       output = {matriz[0][0], -1};
 
-      for(int i = 0; i < filas; ++i){
-         for(int j = 0; j < columnas; ++j){
+      for(int i = inicio_i; i < final_i; ++i){
+         for(int j = inicio_j; j < final_j; ++j){
             int num = matriz[i][j];
             if(num > output.first){
                output.second = output.first;
@@ -27,7 +28,7 @@ pair<int, int> max2_matriz(int **matriz, int filas, int columnas){
 }
 
 int main(int argc, char *argv[]) {
-   int **v;
+   vector<vector<int>> v;
 	int filas, columnas, total;
 	chrono::high_resolution_clock::time_point t0, tf;
 	chrono::duration<double> duracion;
@@ -45,26 +46,25 @@ int main(int argc, char *argv[]) {
    columnas = atoi(argv[3]);
    total = filas * columnas;
 
-	
-   v = new int*[filas];
-   for(int i = 0; i < filas; ++i)
-      v[i] = new int[columnas];
+   v.reserve(filas);
 	
 	// Generamos vector aleatorio de prueba, con componentes entre 0 y n-1
-	for (int i = 0; i < filas; ++i)
+	for (int i = 0; i < filas; ++i){
+      vector<int> temporal;
+      temporal.reserve(columnas);
+
       for(int j = 0; j < columnas; ++j)
-		   v[i][j] = rand() % total;
+		   temporal.push_back(rand() % total);
+
+      v.push_back(temporal);
+   }
 			
 	t0 = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que comienza la ejecuciÛn del algoritmo
-	max2_matriz(v, filas, columnas);
+	max2_matriz(v, 0, filas, 0, columnas);
 	tf = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
 	
 	duracion = std::chrono::duration_cast<std::chrono::duration<double>>(tf - t0);
 	cout << filas * columnas << " " << duracion.count() << endl;
-	
-   for(int i = 0; i < filas; ++i)
-	   delete[] v[i];
-   delete[] v;
 
 	return 0;
 }
