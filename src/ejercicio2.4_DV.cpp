@@ -11,7 +11,7 @@ int contInversiones(vector<int>& v, int inicio, int medio, int fin){
   vector<int> vaux;
 
   while(i <= medio && j <= fin){
-    if(v[i]<v[j]){
+    if(v[i]<=v[j]){
       vaux.push_back(v[i]);
       i++;
     }
