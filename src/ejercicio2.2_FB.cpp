@@ -11,8 +11,8 @@ pair<int, int> max2_matriz(const vector<vector<int>> &matriz,int inicio_i,int in
    if(final_i - inicio_i > 0 && final_j - inicio_j > 0){
       output = {matriz[0][0], -1};
 
-      for(int i = inicio_i; i < final_i; ++i){
-         for(int j = inicio_j; j < final_j; ++j){
+      for(int i = inicio_i; i <= final_i; ++i){
+         for(int j = inicio_j; j <= final_j; ++j){
             int num = matriz[i][j];
             if(num > output.first){
                output.second = output.first;
@@ -57,8 +57,8 @@ int main(int argc, char *argv[]) {
 		   temporal.push_back(rand() % total);
 
       v.push_back(temporal);
-   }
-			
+   }		
+
 	t0 = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que comienza la ejecuciÛn del algoritmo
 	max2_matriz(v, 0, filas - 1, 0, columnas - 1);
 	tf = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo

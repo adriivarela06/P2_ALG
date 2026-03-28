@@ -10,7 +10,7 @@ int contInversiones(vector<int>& v, int inicio, int medio, int fin){
   int j= medio+1;
   vector<int> vaux;
 
-  while(i<medio && j<fin){
+  while(i <= medio && j <= fin){
     if(v[i]<v[j]){
       vaux.push_back(v[i]);
       i++;
@@ -22,11 +22,11 @@ int contInversiones(vector<int>& v, int inicio, int medio, int fin){
       j++;
     }
   }
-  while(i<medio){
+  while(i <= medio){
     vaux.push_back(v[i]);
     i++;
   }
-  while(j<fin){
+  while(j <= fin){
       vaux.push_back(v[j]);
       j++;
   }
@@ -67,8 +67,8 @@ int main(int argc, char *argv[]) {
 	srand(semilla);	// Inicializamos generador de no. aleatorios
 
 	n= atoi(argv[2]);
-  vector<int> v(n);
-  vector<int> vaux(n);
+   vector<int> v(n);
+   vector<int> vaux(n);
 	int invert=0;
 	// Generamos vector aleatorio de prueba, con componentes entre 0 y n-1
 	for (i= 0; i<n; i++)
@@ -79,7 +79,7 @@ int main(int argc, char *argv[]) {
 	tf= std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
 	
 	double tejecucion= std::chrono::duration_cast<std::chrono::microseconds>(tf - t0).count();
-  tejecucion= tejecucion/1000000.0; // Convertimos a segundos
+   tejecucion= tejecucion/1000000.0; // Convertimos a segundos
 	
 	cout << "para " << n <<" inversiones: "<< invert <<" tiempo: "<< tejecucion << endl;
 	
