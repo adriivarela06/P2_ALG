@@ -14,12 +14,14 @@ set output "ejercicio2_2_ajuste.png"
 set title "Ejercicio 2.2: Fuerza Bruta vs Divide y Vencerás"
 
 # 1. Definimos las funciones teóricas (ambas lineales)
-f_fb22(x) = a1*x + b1
-f_dv22(x) = a2*x + b2
+a1 = 1e-9
+a2 = 1e-8
+f_fb22(x) = a1*x
+f_dv22(x) = a2*x
 
 # 2. Hacemos el fit (ajuste por mínimos cuadrados)
-fit f_fb22(x) "../data/ejercicio2.2_FB.dat" using 1:2 via a1, b1
-fit f_dv22(x) "../data/ejercicio2.2_DV.dat" using 1:2 via a2, b2
+fit f_fb22(x) "../data/ejercicio2.2_FB.dat" using 1:2 via a1
+fit f_dv22(x) "../data/ejercicio2.2_DV.dat" using 1:2 via a2
 
 # 3. Calculamos el umbral experimental usando 'paste' para unir las columnas
 stats "< paste ../data/ejercicio2.2_FB.dat ../data/ejercicio2.2_DV.dat" using 1:(abs($2-$4)) name "UMBRAL22" nooutput

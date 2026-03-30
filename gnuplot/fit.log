@@ -1,7 +1,7 @@
 
 
 *******************************************************************************
-Sat Mar 28 12:35:59 2026
+Mon Mar 30 13:52:13 2026
 
 
 FIT:    data read from "../data/ejercicio2.2_FB.dat" using 1:2
@@ -10,34 +10,28 @@ FIT:    data read from "../data/ejercicio2.2_FB.dat" using 1:2
         residuals are weighted equally (unit weight)
 
 function used for fitting: f_fb22(x)
-	f_fb22(x) = a1*x + b1
+	f_fb22(x) = a1*x
 fitted parameters initialized with current variable values
 
-iter      chisq       delta/lim  lambda   a1            b1           
-   0 3.8500011000e+14   0.00e+00  4.39e+06    1.000000e+00   1.000000e+00
-   4 2.1428549144e+00  -2.77e-01  4.39e+02   -1.428571e-07   9.999997e-01
+iter      chisq       delta/lim  lambda   a1           
+   0 3.4576493230e-04   0.00e+00  6.20e-03    1.000000e-09
+   3 8.0725071753e-07  -3.52e-01  6.20e-06    1.946570e-09
 
-After 4 iterations the fit converged.
-final sum of squares of residuals : 2.14285
-rel. change during last iteration : -2.76636e-06
+After 3 iterations the fit converged.
+final sum of squares of residuals : 8.07251e-07
+rel. change during last iteration : -3.52455e-06
 
-degrees of freedom    (FIT_NDF)                        : 8
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.517549
-variance of residuals (reduced chisquare) = WSSR/ndf   : 0.267857
+degrees of freedom    (FIT_NDF)                        : 9
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00029949
+variance of residuals (reduced chisquare) = WSSR/ndf   : 8.96945e-08
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
-a1              = -1.42857e-07     +/- 5.698e-08    (39.89%)
-b1              = 1                +/- 0.3536       (35.36%)
-
-correlation matrix of the fit parameters:
-                a1     b1     
-a1              1.000 
-b1             -0.886  1.000 
+a1              = 1.94657e-09      +/- 1.526e-11    (0.7841%)
 
 
 *******************************************************************************
-Sat Mar 28 12:35:59 2026
+Mon Mar 30 13:52:13 2026
 
 
 FIT:    data read from "../data/ejercicio2.2_DV.dat" using 1:2
@@ -46,34 +40,28 @@ FIT:    data read from "../data/ejercicio2.2_DV.dat" using 1:2
         residuals are weighted equally (unit weight)
 
 function used for fitting: f_dv22(x)
-	f_dv22(x) = a2*x + b2
+	f_dv22(x) = a2*x
 fitted parameters initialized with current variable values
 
-iter      chisq       delta/lim  lambda   a2            b2           
-   0 3.8500010998e+14   0.00e+00  4.39e+06    1.000000e+00   1.000000e+00
-   4 2.1429543161e+00  -2.77e-01  4.39e+02   -1.428364e-07   9.999997e-01
+iter      chisq       delta/lim  lambda   a2           
+   0 2.4624408278e-02   0.00e+00  6.20e-02    1.000000e-08
+   3 4.8523315583e-05  -4.18e-01  6.20e-05    1.798958e-08
 
-After 4 iterations the fit converged.
-final sum of squares of residuals : 2.14295
-rel. change during last iteration : -2.76625e-06
+After 3 iterations the fit converged.
+final sum of squares of residuals : 4.85233e-05
+rel. change during last iteration : -4.17739e-06
 
-degrees of freedom    (FIT_NDF)                        : 8
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.517561
-variance of residuals (reduced chisquare) = WSSR/ndf   : 0.267869
+degrees of freedom    (FIT_NDF)                        : 9
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00232196
+variance of residuals (reduced chisquare) = WSSR/ndf   : 5.39148e-06
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
-a2              = -1.42836e-07     +/- 5.698e-08    (39.89%)
-b2              = 1                +/- 0.3536       (35.36%)
-
-correlation matrix of the fit parameters:
-                a2     b2     
-a2              1.000 
-b2             -0.886  1.000 
+a2              = 1.79896e-08      +/- 1.183e-10    (0.6578%)
 
 
 *******************************************************************************
-Sat Mar 28 12:35:59 2026
+Mon Mar 30 13:52:13 2026
 
 
 FIT:    data read from "../data/ejercicio2.4_FB.dat" using 1:2
@@ -86,22 +74,22 @@ function used for fitting: g_fb24(x)
 fitted parameters initialized with current variable values
 
 iter      chisq       delta/lim  lambda   c1            d1            e1           
-   0 4.5167727246e+20   0.00e+00  2.74e+09    1.000000e+00   1.000000e+00   1.000000e+00
-  13 6.5670175856e+01  -5.85e-06  2.74e-04    1.581955e-09   1.521741e-04  -2.439504e+00
+   0 4.5167727332e+20   0.00e+00  2.74e+09    1.000000e+00   1.000000e+00   1.000000e+00
+  13 9.0581463455e-01  -3.61e-05  2.74e-04    2.131245e-09  -2.612455e-06  -3.712267e-03
 
 After 13 iterations the fit converged.
-final sum of squares of residuals : 65.6702
-rel. change during last iteration : -5.84639e-11
+final sum of squares of residuals : 0.905815
+rel. change during last iteration : -3.60926e-10
 
 degrees of freedom    (FIT_NDF)                        : 17
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.96544
-variance of residuals (reduced chisquare) = WSSR/ndf   : 3.86295
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.230832
+variance of residuals (reduced chisquare) = WSSR/ndf   : 0.0532832
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
-c1              = 1.58196e-09      +/- 5.933e-10    (37.51%)
-d1              = 0.000152174      +/- 6.414e-05    (42.15%)
-e1              = -2.4395          +/- 1.462        (59.94%)
+c1              = 2.13124e-09      +/- 6.969e-11    (3.27%)
+d1              = -2.61245e-06     +/- 7.533e-06    (288.3%)
+e1              = -0.00371227      +/- 0.1717       (4626%)
 
 correlation matrix of the fit parameters:
                 c1     d1     e1     
@@ -111,7 +99,7 @@ e1              0.781 -0.889  1.000
 
 
 *******************************************************************************
-Sat Mar 28 12:35:59 2026
+Mon Mar 30 13:52:13 2026
 
 
 FIT:    data read from "../data/ejercicio2.4_DV.dat" using 1:2
@@ -124,21 +112,21 @@ function used for fitting: g_dv24(x)
 fitted parameters initialized with current variable values
 
 iter      chisq       delta/lim  lambda   c2            d2           
-   0 9.0144016990e+12   0.00e+00  4.75e+05    1.000000e+00   1.000000e+00
-   9 1.0452311599e-03  -1.14e-01  4.75e-04    6.392517e-08  -2.256285e-03
+   0 9.0144020399e+12   0.00e+00  4.75e+05    1.000000e+00   1.000000e+00
+  10 1.7476599198e-05  -1.94e-11  4.75e-05    4.079983e-08   1.024181e-03
 
-After 9 iterations the fit converged.
-final sum of squares of residuals : 0.00104523
-rel. change during last iteration : -1.13661e-06
+After 10 iterations the fit converged.
+final sum of squares of residuals : 1.74766e-05
+rel. change during last iteration : -1.93867e-16
 
 degrees of freedom    (FIT_NDF)                        : 18
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.00762026
-variance of residuals (reduced chisquare) = WSSR/ndf   : 5.80684e-05
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 0.000985354
+variance of residuals (reduced chisquare) = WSSR/ndf   : 9.70922e-07
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
-c2              = 6.39252e-08      +/- 5.028e-09    (7.866%)
-d2              = -0.00225628      +/- 0.003376     (149.6%)
+c2              = 4.07998e-08      +/- 6.502e-10    (1.594%)
+d2              = 0.00102418       +/- 0.0004365    (42.62%)
 
 correlation matrix of the fit parameters:
                 c2     d2     
