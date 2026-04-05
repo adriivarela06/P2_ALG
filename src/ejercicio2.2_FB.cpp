@@ -60,8 +60,10 @@ int main(int argc, char *argv[]) {
    }		
 
 	t0 = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que comienza la ejecuciÛn del algoritmo
-	max2_matriz(v, 0, filas - 1, 0, columnas - 1);
+	pair<int, int> resultado = max2_matriz(v, 0, 0, filas - 1, columnas - 1);
 	tf = std::chrono::high_resolution_clock::now(); // Cogemos el tiempo en que finaliza la ejecuciÛn del algoritmo
+
+   cerr << "Resultado ignorado para evitar optimización: " << resultado.first << endl;
 	
 	duracion = std::chrono::duration_cast<std::chrono::duration<double>>(tf - t0);
 	cout << filas * columnas << " " << duracion.count() << endl;

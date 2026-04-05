@@ -14,12 +14,14 @@ set output "ejercicio2_2_ajuste.png"
 set title "Ejercicio 2.2: Fuerza Bruta vs Divide y Vencerás"
 
 # 1. Definimos las funciones teóricas (ambas lineales)
-f_fb22(x) = a1*x + b1
-f_dv22(x) = a2*x + b2
+a1 = 1e-9
+a2 = 1e-8
+f_fb22(x) = a1*x
+f_dv22(x) = a2*x
 
 # 2. Hacemos el fit (ajuste por mínimos cuadrados)
-fit f_fb22(x) "../data/ejercicio2.2_FB.dat" using 1:2 via a1, b1
-fit f_dv22(x) "../data/ejercicio2.2_DV.dat" using 1:2 via a2, b2
+fit f_fb22(x) "../data/ejercicio2.2_FB.dat" using 1:2 via a1
+fit f_dv22(x) "../data/ejercicio2.2_DV.dat" using 1:2 via a2
 
 # 3. Calculamos el umbral experimental usando 'paste' para unir las columnas
 stats "< paste ../data/ejercicio2.2_FB.dat ../data/ejercicio2.2_DV.dat" using 1:(abs($2-$4)) name "UMBRAL22" nooutput
@@ -33,6 +35,17 @@ set arrow 1 from n0_22, graph 0 to n0_22, graph 1 nohead dt 2 lc rgb "red" front
 plot "../data/ejercicio2.2_FB.dat" using 1:2 title "FB (Datos)" pt 7 lc rgb "blue", \
      f_fb22(x) title "FB (Ajuste Lineal)" lw 2 lc rgb "dark-blue", \
      "../data/ejercicio2.2_DV.dat" using 1:2 title "DV (Datos)" pt 7 lc rgb "orange", \
+     f_dv22(x) title "DV (Ajuste Lineal)" lw 2 lc rgb "dark-orange"
+
+# 6. Gráficas individuales por programa (Ejercicio 2.2)
+set output "ejercicio2_2_FB.png"
+set title "Ejercicio 2.2 - Fuerza Bruta"
+plot "../data/ejercicio2.2_FB.dat" using 1:2 title "FB (Datos)" pt 7 lc rgb "blue", \
+     f_fb22(x) title "FB (Ajuste Lineal)" lw 2 lc rgb "dark-blue"
+
+set output "ejercicio2_2_DV.png"
+set title "Ejercicio 2.2 - Divide y Vencerás"
+plot "../data/ejercicio2.2_DV.dat" using 1:2 title "DV (Datos)" pt 7 lc rgb "orange", \
      f_dv22(x) title "DV (Ajuste Lineal)" lw 2 lc rgb "dark-orange"
 
 # Limpiamos etiquetas para la siguiente gráfica
@@ -66,6 +79,17 @@ set arrow 1 from n0_24, graph 0 to n0_24, graph 1 nohead dt 2 lc rgb "red" front
 plot "../data/ejercicio2.4_FB.dat" using 1:2 title "FB (Datos)" pt 7 lc rgb "cyan", \
      g_fb24(x) title "FB (Ajuste Cuadrático)" lw 2 lc rgb "blue", \
      "../data/ejercicio2.4_DV.dat" using 1:2 title "DV (Datos)" pt 7 lc rgb "green", \
+     g_dv24(x) title "DV (Ajuste N log N)" lw 2 lc rgb "dark-green"
+
+# 6. Gráficas individuales por programa (Ejercicio 2.4)
+set output "ejercicio2_4_FB.png"
+set title "Ejercicio 2.4 - Fuerza Bruta"
+plot "../data/ejercicio2.4_FB.dat" using 1:2 title "FB (Datos)" pt 7 lc rgb "cyan", \
+     g_fb24(x) title "FB (Ajuste Cuadrático)" lw 2 lc rgb "blue"
+
+set output "ejercicio2_4_DV.png"
+set title "Ejercicio 2.4 - Divide y Vencerás"
+plot "../data/ejercicio2.4_DV.dat" using 1:2 title "DV (Datos)" pt 7 lc rgb "green", \
      g_dv24(x) title "DV (Ajuste N log N)" lw 2 lc rgb "dark-green"
 
 unset output
